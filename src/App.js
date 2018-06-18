@@ -1,7 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
-import logo from "./logo.svg";
+import Header from "./Header";
 
 const UserProfile = {
   name: "Every Interaction",
@@ -11,10 +11,7 @@ const UserProfile = {
 function ProfilePage() {
   return (
     <div>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">Welcome to React</h1>
-      </header>
+      <Header />
       <p className="App-intro">
         To get started, edit <code>src/App.js</code> and save to reload.
       </p>
