@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Helmet from "react-helmet";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import logo from "./logo.svg";
-import "./App.css";
 
 const UserProfile = {
   name: "Every Interaction",
@@ -23,24 +22,20 @@ function ProfilePage() {
   );
 }
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Helmet>
-          <title>
-            {UserProfile.name} (@{UserProfile.account.toLowerCase()}) | Twitter
-          </title>
-        </Helmet>
-        <BrowserRouter>
-          <Switch>
-            <Redirect exact from="/" to="/everyinteract" />
-            <Route path="/everyinteract" component={ProfilePage} />
-          </Switch>
-        </BrowserRouter>
-      </div>
-    );
-  }
+export default function() {
+  return (
+    <div>
+      <Helmet>
+        <title>
+          {UserProfile.name} (@{UserProfile.account.toLowerCase()}) | Twitter
+        </title>
+      </Helmet>
+      <BrowserRouter>
+        <Switch>
+          <Redirect exact from="/" to="/everyinteract" />
+          <Route path="/everyinteract" component={ProfilePage} />
+        </Switch>
+      </BrowserRouter>
+    </div>
+  );
 }
-
-export default App;
