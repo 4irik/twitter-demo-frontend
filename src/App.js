@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Helmet from "react-helmet";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import logo from "./logo.svg";
