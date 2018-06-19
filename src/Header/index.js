@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 import iconHome from "./asset/icon/home.svg";
 import iconMoments from "./asset/icon/moments.svg";
 import iconMessages from "./asset/icon/messages.svg";
 import iconNotifications from "./asset/icon/notifications.svg";
 import iconLogo from "./asset/icon/logo.svg";
+import iconMagnifier from "./asset/icon/magnifier.svg";
 
 const Wrapper = styled.div`
   background: white;
@@ -17,7 +19,7 @@ const Navigation = styled.nav`
   height: 45px;
 `;
 
-const Link = styled.a`
+const NavLink = styled(Link)`
   display: flex;
   align-items: center;
   color: #667580;
@@ -27,8 +29,70 @@ const Link = styled.a`
   margin-right: 15px;
 `;
 
-const LinkIcon = styled.img`
+const Icon = styled.img`
   margin-right: 4px;
+`;
+
+const LinkLogo = styled(Link)`
+  margin-left: auto;
+  max-height: 16px;
+`;
+
+const Search = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 45px;
+`;
+
+const Form = styled.form`
+  display: flex;
+  align-items: center;
+  width: 220px;
+`;
+
+const Field = styled.input`
+  width: 100%;
+  background: #f5f8fa;
+  border: 1px solid #e6ecf0;
+  box-sizing: border-box;
+  border-radius: 100px;
+  color: #687b8a;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 8px 32px 8px 12px;
+`;
+
+const Button = styled.button`
+  background-color: transparent;
+  height: 15px;
+  width: 15px;
+  border: 0;
+  padding: 0;
+  margin-left: -27px;
+  cursor: pointer;
+`;
+
+const Avatar = styled.img`
+  height: 26px;
+  padding: 0 15px;
+`;
+
+const Tweet = styled.button`
+  border-radius: 100px;
+  box-shadow: none;
+  cursor: pointer;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  border-style: solid;
+  border-width: 1px;
+  background-color: #1da1f2;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #fff;
 `;
 
 const MenuList = [
@@ -54,13 +118,6 @@ const MenuList = [
   }
 ];
 
-const LinkLogo = styled.a`
-  margin-left: auto;
-`;
-const Logo = styled.img`
-  max-height: 16px;
-`;
-
 export default function() {
   return (
     <Wrapper>
@@ -69,16 +126,28 @@ export default function() {
           <div className="col-xs-6">
             <Navigation>
               {MenuList.map(property => (
-                <Link href={property.url}>
-                  <LinkIcon src={property.icon} />
+                <NavLink to={property.url}>
+                  <Icon src={property.icon} />
                   {property.name}
-                </Link>
+                </NavLink>
               ))}
-              <LinkLogo href="/">
-                <Logo src={iconLogo} alt="Logo" />
+              <LinkLogo to="/">
+                <img src={iconLogo} alt="Logo" />
               </LinkLogo>
             </Navigation>
           </div>
+          <Search className="col-xs-6">
+            <Form>
+              <Field type="search" placeholder="Search Twitter" />
+              <Button>
+                <img src={iconMagnifier} alt="" />
+              </Button>
+            </Form>
+            <Link to="/">
+              <Avatar src={process.env.PUBLIC_URL + "img/avatar.jpg"} />
+            </Link>
+            <Tweet>Tweet</Tweet>
+          </Search>
         </div>
       </div>
     </Wrapper>
