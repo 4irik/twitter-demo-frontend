@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { SolidButton } from "../Common/Button";
 
 import iconHome from "./asset/icon/home.svg";
 import iconMoments from "./asset/icon/moments.svg";
@@ -78,23 +79,6 @@ const Avatar = styled.img`
   padding: 0 15px;
 `;
 
-const Tweet = styled.button`
-  border-radius: 100px;
-  box-shadow: none;
-  cursor: pointer;
-  padding: 6px 16px;
-  position: relative;
-  text-align: center;
-  white-space: nowrap;
-  border-style: solid;
-  border-width: 1px;
-  background-color: #1da1f2;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 20px;
-  color: #fff;
-`;
-
 const MenuList = [
   {
     url: "/",
@@ -146,7 +130,7 @@ export default function() {
             <Link to="/">
               <Avatar src={process.env.PUBLIC_URL + "img/avatar.jpg"} />
             </Link>
-            <Tweet>Tweet</Tweet>
+            <SolidButton>Tweet</SolidButton>
           </Search>
         </div>
       </div>
