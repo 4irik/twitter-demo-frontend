@@ -68,7 +68,7 @@ const Tweets = [
       },
       loves: {
         count: 47,
-        isUsed: false
+        isUsed: true
       },
       envelope: {
         count: 0,
