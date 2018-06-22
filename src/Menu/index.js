@@ -7,6 +7,7 @@ import iconMore from "./asset/icon/more.svg";
 
 const Wrapper = styled.div`
   background-color: #fff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.25);
 `;
 
 const Menu = styled.nav`
@@ -83,24 +84,26 @@ const MenuConfig = [
 export default function() {
   return (
     <Wrapper>
-      <div className="row">
-        <div className="col-xs-offset-4 col-xs-4">
-          <Menu>
-            {MenuConfig.map(menuItem => (
-              <MenuLink to={menuItem.url} activeClassName="active">
-                {menuItem.text}
-                <MenuCount>{menuItem.count.toLocaleString()}</MenuCount>
-              </MenuLink>
-            ))}
-          </Menu>
-        </div>
-        <div className="col-xs-2">
-          <ButtonBlock>
-            <HollowButton>Follow</HollowButton>
-            <MoreButton>
-              <img src={iconMore} alt="" />
-            </MoreButton>
-          </ButtonBlock>
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-offset-3 col-xs-6">
+            <Menu>
+              {MenuConfig.map(menuItem => (
+                <MenuLink to={menuItem.url} activeClassName="active">
+                  {menuItem.text}
+                  <MenuCount>{menuItem.count.toLocaleString()}</MenuCount>
+                </MenuLink>
+              ))}
+            </Menu>
+          </div>
+          <div className="col-xs-3">
+            <ButtonBlock>
+              <HollowButton>Follow</HollowButton>
+              <MoreButton>
+                <img src={iconMore} alt="" />
+              </MoreButton>
+            </ButtonBlock>
+          </div>
         </div>
       </div>
     </Wrapper>
