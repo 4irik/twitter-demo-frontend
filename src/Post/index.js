@@ -108,6 +108,14 @@ const Tweets = [
     createdAt: "Nov 18",
     text:
       "Variable web fonts are coming, and will open a world of opportunities for weight use online",
+    card: {
+      image: process.env.PUBLIC_URL + "img/rectangle.jpg",
+      header: "The Future of Web Fonts",
+      text:
+        "We love typefaces. They give our sites and applications personalized feel. " +
+        "They convey the information and tell a story. They establish information hierarchy. But they’re…",
+      source: "vilijamis.com"
+    },
     actions: {
       comment: {
         count: 0,

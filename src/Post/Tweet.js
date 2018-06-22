@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Pinned from "./Pin";
 import Autor from "./Autor";
 import Actions from "./Actions";
+import Card from "./Card";
 
 const Tweet = styled.article`
   border-top: 1px solid #e1e8ed;
@@ -18,12 +19,16 @@ const Content = styled(props => {
   ) : (
     <div className={props.className} dangerouslySetInnerHTML={rawHtml} />
   );
+}).attrs({
+  lineHeight: props => (props.isCard ? 25 : 30),
+  fontSize: props => (props.isCard ? 15 : 25),
+  fontWeight: props => (props.isCard ? "normal" : 300)
 })`
-  line-height: 30px;
-  font-size: 25px;
+  line-height: ${props => props.lineHeight}px;
+  font-size: ${props => props.fontSize}px;
   color: #292f33;
   white-space: pre-wrap;
-  font-weight: 300;
+  font-weight: ${props => props.fontWeight};
   & a {
     color: #1da1f2;
     text-decoration: none;
@@ -50,7 +55,8 @@ export default function(props) {
     <Tweet>
       <Pinned isPinned={props.isPinned} />
       <Autor autor={props.autor} createdAt={props.createdAt} />
-      <Content text={props.text} />
+      <Content text={props.text} isCard={props.card ? true : false} />
+      <Card card={props.card} />
       <Image img={props.image} />
       <Actions actions={props.actions} />
     </Tweet>
