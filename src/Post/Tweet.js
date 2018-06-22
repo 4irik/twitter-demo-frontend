@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 import Pinned from "./Pin";
 import Autor from "./Autor";
@@ -34,12 +33,25 @@ const Content = styled(props => {
   }
 `;
 
+const Image = styled(props => {
+  return props.img ? (
+    <img src={props.img} className={props.className} alt="" />
+  ) : (
+    ""
+  );
+})`
+  margin-top: 10px;
+  max-width: 100%;
+  border: none;
+`;
+
 export default function(props) {
   return (
     <Tweet>
       <Pinned isPinned={props.isPinned} />
       <Autor autor={props.autor} createdAt={props.createdAt} />
       <Content text={props.text} />
+      <Image img={props.image} />
       <Actions actions={props.actions} />
     </Tweet>
   );

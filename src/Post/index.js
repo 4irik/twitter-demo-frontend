@@ -57,6 +57,7 @@ const Tweets = [
       '<a href="#">#design</a> folk ' +
       '<a href="http://everyinteraction.com/resources/">everyinteraction.com/resources/</a> ' +
       '<a href="#">#webdesign</a> <a href="#">#UI</a>',
+    image: process.env.PUBLIC_URL + "img/img.png",
     actions: {
       comment: {
         count: 0,
