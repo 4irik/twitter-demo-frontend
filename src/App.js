@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import Header from "./Header";
 import Cover from "./Cover";
 import Menu from "./Menu";
+import Post from "./Post";
 
 const UserProfile = {
   name: "Every Interaction",
@@ -16,9 +17,11 @@ function ProfilePage() {
       <Header />
       <Cover />
       <Menu />
-      <p className="App-intro">
-        To get started, edit <code>src/App.js</code> and save to reload.
-      </p>
+      <div className="container">
+        <div className="row">
+          <Post />
+        </div>
+      </div>
     </div>
   );
 }
