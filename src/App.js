@@ -10,6 +10,7 @@ import Followers from "./Followers";
 import Media from "./Media";
 import Suggestions from "./Suggestions";
 import Trands from "./Trands";
+import Policy from "./Policy";
 
 const UserProfile = {
   name: "Every Interaction",
@@ -35,6 +36,7 @@ function ProfilePage() {
           <div className="col-xs-3">
             <Suggestions />
             <Trands />
+            <Policy policyText="© 2018 Twitter  About  Help Center  Terms Privacy policy  Cookies  Ads info" />
           </div>
         </div>
       </div>
