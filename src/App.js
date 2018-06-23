@@ -6,6 +6,7 @@ import Cover from "./Cover";
 import Menu from "./Menu";
 import Post from "./Post";
 import Profile from "./Profile";
+import Followers from "./Followers";
 
 const UserProfile = {
   name: "Every Interaction",
@@ -22,6 +23,7 @@ function ProfilePage() {
         <div className="row">
           <div className="col-xs-3">
             <Profile />
+            <Followers />
           </div>
           <div className="col-xs-6">
             <Post />
