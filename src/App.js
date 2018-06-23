@@ -5,6 +5,7 @@ import Header from "./Header";
 import Cover from "./Cover";
 import Menu from "./Menu";
 import Post from "./Post";
+import Profile from "./Profile";
 
 const UserProfile = {
   name: "Every Interaction",
@@ -19,7 +20,12 @@ function ProfilePage() {
       <Menu />
       <div className="container">
         <div className="row">
-          <Post />
+          <div className="col-xs-3">
+            <Profile />
+          </div>
+          <div className="col-xs-6">
+            <Post />
+          </div>
         </div>
       </div>
     </div>

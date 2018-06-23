@@ -139,17 +139,15 @@ const Tweets = [
 
 export default function() {
   return (
-    <div className="col-xs-offset-3 col-xs-6">
-      <Wrapper>
-        <TabMenu>
-          {TabMenuData.map(tabItem => (
-            <TabMenuLink to={tabItem.url} activeClassName="active">
-              {tabItem.text}
-            </TabMenuLink>
-          ))}
-        </TabMenu>
-        {Tweets.map(tweet => <Tweet {...tweet} />)}
-      </Wrapper>
-    </div>
+    <Wrapper>
+      <TabMenu>
+        {TabMenuData.map(tabItem => (
+          <TabMenuLink to={tabItem.url} activeClassName="active">
+            {tabItem.text}
+          </TabMenuLink>
+        ))}
+      </TabMenu>
+      {Tweets.map(tweet => <Tweet {...tweet} />)}
+    </Wrapper>
   );
 }
