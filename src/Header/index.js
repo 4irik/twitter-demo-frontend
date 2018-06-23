@@ -120,18 +120,20 @@ export default function() {
               </LinkLogo>
             </Navigation>
           </div>
-          <Search className="col-xs-6">
-            <Form>
-              <Field type="search" placeholder="Search Twitter" />
-              <Button>
-                <img src={iconMagnifier} alt="" />
-              </Button>
-            </Form>
-            <Link to="/">
-              <Avatar src={process.env.PUBLIC_URL + "img/avatar.jpg"} />
-            </Link>
-            <SolidButton>Tweet</SolidButton>
-          </Search>
+          <div className="col-xs-6">
+            <Search>
+              <Form>
+                <Field type="search" placeholder="Search Twitter" />
+                <Button>
+                  <img src={iconMagnifier} alt="" />
+                </Button>
+              </Form>
+              <Link to="/">
+                <Avatar src={process.env.PUBLIC_URL + "img/avatar.jpg"} />
+              </Link>
+              <SolidButton>Tweet</SolidButton>
+            </Search>
+          </div>
         </div>
       </div>
     </Wrapper>
