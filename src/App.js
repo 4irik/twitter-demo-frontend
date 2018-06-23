@@ -8,6 +8,7 @@ import Post from "./Post";
 import Profile from "./Profile";
 import Followers from "./Followers";
 import Media from "./Media";
+import Suggestions from "./Suggestions";
 import Trands from "./Trands";
 
 const UserProfile = {
@@ -32,6 +33,7 @@ function ProfilePage() {
             <Post />
           </div>
           <div className="col-xs-3">
+            <Suggestions />
             <Trands />
           </div>
         </div>
