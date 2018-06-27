@@ -79,29 +79,6 @@ const Avatar = styled.img`
   padding: 0 15px;
 `;
 
-const MenuList = [
-  {
-    url: "/",
-    icon: iconHome,
-    name: "Home"
-  },
-  {
-    url: "/moments",
-    icon: iconMoments,
-    name: "Momemnts"
-  },
-  {
-    url: "/notifications",
-    icon: iconNotifications,
-    name: "Notifications"
-  },
-  {
-    url: "/messages",
-    icon: iconMessages,
-    name: "Messages"
-  }
-];
-
 export default function() {
   return (
     <Wrapper>
@@ -109,12 +86,23 @@ export default function() {
         <div className="row">
           <div className="col-xs-6">
             <Navigation>
-              {MenuList.map(property => (
-                <NavLink to={property.url}>
-                  <Icon src={property.icon} />
-                  {property.name}
-                </NavLink>
-              ))}
+              <NavLink to="/">
+                <Icon src={iconHome} />
+                Home
+              </NavLink>
+              <NavLink to="/moments">
+                <Icon src={iconMoments} />
+                Momemnts
+              </NavLink>
+              <NavLink to="/notifications">
+                <Icon src={iconNotifications} />
+                Notifications
+              </NavLink>
+              <NavLink to="/messages">
+                <Icon src={iconMessages} />
+                Messages
+              </NavLink>
+
               <LinkLogo to="/">
                 <img src={iconLogo} alt="Logo" />
               </LinkLogo>
