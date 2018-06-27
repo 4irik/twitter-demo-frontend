@@ -35,7 +35,6 @@ const Icon = styled.img`
 `;
 
 const LinkLogo = styled(Link)`
-  margin-left: auto;
   max-height: 16px;
 `;
 
@@ -83,45 +82,40 @@ export default function() {
   return (
     <Wrapper>
       <div className="container">
-        <div className="row">
-          <div className="col-xs-6">
-            <Navigation>
-              <NavLink to="/">
-                <Icon src={iconHome} />
-                Home
-              </NavLink>
-              <NavLink to="/moments">
-                <Icon src={iconMoments} />
-                Momemnts
-              </NavLink>
-              <NavLink to="/notifications">
-                <Icon src={iconNotifications} />
-                Notifications
-              </NavLink>
-              <NavLink to="/messages">
-                <Icon src={iconMessages} />
-                Messages
-              </NavLink>
-
-              <LinkLogo to="/">
-                <img src={iconLogo} alt="Logo" />
-              </LinkLogo>
-            </Navigation>
-          </div>
-          <div className="col-xs-6">
-            <Search>
-              <Form>
-                <Field type="search" placeholder="Search Twitter" />
-                <Button>
-                  <img src={iconMagnifier} alt="" />
-                </Button>
-              </Form>
-              <Link to="/">
-                <Avatar src={process.env.PUBLIC_URL + "img/avatar.jpg"} />
-              </Link>
-              <SolidButton>Tweet</SolidButton>
-            </Search>
-          </div>
+        <div className="row between-lg middle-lg">
+          <Navigation>
+            <NavLink to="/">
+              <Icon src={iconHome} />
+              Home
+            </NavLink>
+            <NavLink to="/moments">
+              <Icon src={iconMoments} />
+              Momemnts
+            </NavLink>
+            <NavLink to="/notifications">
+              <Icon src={iconNotifications} />
+              Notifications
+            </NavLink>
+            <NavLink to="/messages">
+              <Icon src={iconMessages} />
+              Messages
+            </NavLink>
+          </Navigation>
+          <LinkLogo to="/">
+            <img src={iconLogo} alt="Logo" />
+          </LinkLogo>
+          <Search>
+            <Form>
+              <Field type="search" placeholder="Search Twitter" />
+              <Button>
+                <img src={iconMagnifier} alt="" />
+              </Button>
+            </Form>
+            <Link to="/">
+              <Avatar src={process.env.PUBLIC_URL + "img/avatar.jpg"} />
+            </Link>
+            <SolidButton>Tweet</SolidButton>
+          </Search>
         </div>
       </div>
     </Wrapper>
