@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import Trand from "./Trand";
+import Trend from "./Trend";
 
 const Wrapper = styled.aside`
   margin-top: 15px;
@@ -38,15 +38,15 @@ export default props => {
         United Kingdom Trends <Delimiter>•</Delimiter>{" "}
         <HeaderChanger to="#">Change</HeaderChanger>
       </Header>
-      <Trand title="#BringYourDogToWorkDay" />
-      <Trand title="#FridayFeeling" hint="12.1K Tweets" />
-      <Trand
+      <Trend title="#BringYourDogToWorkDay" />
+      <Trend title="#FridayFeeling" count="12.1K" />
+      <Trend
         title="#BrexitAnniversary"
         hint="It’s one year since the UK voted to leave the European Union"
       />
-      <Trand title="HMS Queen Elizabeth" hint="1,036 Tweets" />
-      <Trand title="Joe Budden" hint="1,036 Tweets" />
-      <Trand title="Trident" hint="6,136 Tweets" />
+      <Trend title="HMS Queen Elizabeth" count="1,036" />
+      <Trend title="Joe Budden" count="1,036" />
+      <Trend title="Trident" count="6,136" />
     </Wrapper>
   );
 };

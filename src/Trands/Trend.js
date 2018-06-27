@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   margin-top: 15px;
 `;
 
-const Trand = styled(Link)`
+const Trend = styled(Link)`
   color: #1da1f2;
   line-height: 20px;
   font-size: 15px;
@@ -27,8 +27,8 @@ const Hint = styled.span`
 export default props => {
   return (
     <Wrapper>
-      <Trand to="#">{props.title}</Trand>
-      {props.hint ? <Hint>{props.hint}</Hint> : ""}
+      <Trend to="#">{props.title}</Trend>
+      {props.count ? <Hint>{props.count} Tweets</Hint> : ""}
     </Wrapper>
   );
 };
