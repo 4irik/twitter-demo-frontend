@@ -28,6 +28,7 @@ export default props => {
   return (
     <Wrapper>
       <Trend to="#">{props.title}</Trend>
+      {props.hint ? <Hint>{props.hint}</Hint> : ""}
       {props.count ? <Hint>{props.count} Tweets</Hint> : ""}
     </Wrapper>
   );
