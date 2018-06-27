@@ -38,13 +38,7 @@ const Content = styled(props => {
   }
 `;
 
-const Image = styled(props => {
-  return props.img ? (
-    <img src={props.img} className={props.className} alt="" />
-  ) : (
-    ""
-  );
-})`
+const Image = styled.img`
   margin-top: 10px;
   max-width: 100%;
   border: none;
@@ -57,7 +51,7 @@ export default function(props) {
       <Autor autor={props.autor} createdAt={props.createdAt} />
       <Content text={props.text} isCard={props.card ? true : false} />
       <Card card={props.card} />
-      <Image img={props.image} />
+      <Image src={props.image} />
       <Actions actions={props.actions} />
     </Tweet>
   );
