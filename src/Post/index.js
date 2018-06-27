@@ -50,11 +50,7 @@ const tweets = [
     isPinned: true,
     autor: autor,
     createdAt: "2 Mar 2015",
-    text:
-      "We’ve made so1me more resources for all you wonderful " +
-      '<a href="#">#design</a> folk ' +
-      '<a href="http://everyinteraction.com/resources/">everyinteraction.com/resources/</a> ' +
-      '<a href="#">#webdesign</a> <a href="#">#UI</a>',
+    text: `We’ve made so1me more resources for all you wonderful <a href="#">#design</a> folk <a href="http://everyinteraction.com/resources/">everyinteraction.com/resources/</a> <a href="#">#webdesign</a> <a href="#">#UI</a>`,
     image: process.env.PUBLIC_URL + "img/img.png",
     actions: {
       comment: {
@@ -78,10 +74,7 @@ const tweets = [
   {
     autor: autor,
     createdAt: "23h",
-    text:
-      "Our new website concept; Taking you " +
-      "from… @ Every Interaction " +
-      '<a href="https://instagram.com/p/BNFGrfhBP3M/">instagram.com/p/BNFGrfhBP3M/</a>',
+    text: `Our new website concept; Taking you from… @ Every Interaction <a href="https://instagram.com/p/BNFGrfhBP3M/">instagram.com/p/BNFGrfhBP3M/</a>`,
     actions: {
       comment: {
         count: 1,
@@ -104,14 +97,11 @@ const tweets = [
   {
     autor: autor,
     createdAt: "Nov 18",
-    text:
-      "Variable web fonts are coming, and will open a world of opportunities for weight use online",
+    text: `Variable web fonts are coming, and will open a world of opportunities for weight use online`,
     card: {
       image: process.env.PUBLIC_URL + "img/rectangle.jpg",
       header: "The Future of Web Fonts",
-      text:
-        "We love typefaces. They give our sites and applications personalized feel. " +
-        "They convey the information and tell a story. They establish information hierarchy. But they’re…",
+      text: `We love typefaces. They give our sites and applications personalized feel. They convey the information and tell a story. They establish information hierarchy. But they’re…`,
       source: "vilijamis.com"
     },
     actions: {
