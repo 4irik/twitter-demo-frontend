@@ -21,7 +21,7 @@ const ContextHint = styled.span`
 
 export default props => {
   if (!props.isPinned) {
-    return "";
+    return null;
   }
 
   return (
