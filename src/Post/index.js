@@ -24,7 +24,7 @@ const TabMenuLink = styled(NavLink)`
   }
 `;
 
-const TabMenuData = [
+const tabMenuData = [
   {
     url: "/everyinteract",
     text: "Tweets"
@@ -39,18 +39,16 @@ const TabMenuData = [
   }
 ];
 
-const Autors = [
-  {
-    name: "Every Interaction",
-    account: "EveryInteract",
-    avatar: process.env.PUBLIC_URL + "img/avatar.jpg"
-  }
-];
+const autor = {
+  name: "Every Interaction",
+  account: "EveryInteract",
+  avatar: process.env.PUBLIC_URL + "img/avatar.jpg"
+};
 
-const Tweets = [
+const tweets = [
   {
     isPinned: true,
-    autor: Autors[0],
+    autor: autor,
     createdAt: "2 Mar 2015",
     text:
       "We’ve made so1me more resources for all you wonderful " +
@@ -78,7 +76,7 @@ const Tweets = [
     }
   },
   {
-    autor: Autors[0],
+    autor: autor,
     createdAt: "23h",
     text:
       "Our new website concept; Taking you " +
@@ -104,7 +102,7 @@ const Tweets = [
     }
   },
   {
-    autor: Autors[0],
+    autor: autor,
     createdAt: "Nov 18",
     text:
       "Variable web fonts are coming, and will open a world of opportunities for weight use online",
@@ -141,13 +139,13 @@ export default function() {
   return (
     <Wrapper>
       <TabMenu>
-        {TabMenuData.map(tabItem => (
+        {tabMenuData.map(tabItem => (
           <TabMenuLink to={tabItem.url} activeClassName="active">
             {tabItem.text}
           </TabMenuLink>
         ))}
       </TabMenu>
-      {Tweets.map(tweet => <Tweet {...tweet} />)}
+      {tweets.map(tweet => <Tweet {...tweet} />)}
     </Wrapper>
   );
 }
