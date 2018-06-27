@@ -38,9 +38,11 @@ const SourceLink = styled.span`
 `;
 
 export default props => {
-  return !props.card ? (
-    ""
-  ) : (
+  if (!props.card) {
+    return null;
+  }
+
+  return (
     <CardWrapper>
       <CardLink to={props.card.source}>
         <Preview src={props.card.image} alt="" />

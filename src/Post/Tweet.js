@@ -11,23 +11,15 @@ const Tweet = styled.article`
   padding: 9px 12px 9px 60px;
 `;
 
-const Content = styled(props => {
-  let rawHtml = { __html: props.text };
-
-  return !props.text ? (
-    ""
-  ) : (
-    <div className={props.className} dangerouslySetInnerHTML={rawHtml} />
-  );
-}).attrs({
+const Content = styled.div.attrs({
   lineHeight: props => (props.isCard ? 25 : 30),
   fontSize: props => (props.isCard ? 15 : 25),
   fontWeight: props => (props.isCard ? "normal" : 300)
 })`
-  line-height: ${props => props.lineHeight}px;
-  font-size: ${props => props.fontSize}px;
   color: #292f33;
   white-space: pre-wrap;
+  line-height: ${props => props.lineHeight}px;
+  font-size: ${props => props.fontSize}px;
   font-weight: ${props => props.fontWeight};
   & a {
     color: #1da1f2;
@@ -38,13 +30,7 @@ const Content = styled(props => {
   }
 `;
 
-const Image = styled(props => {
-  return props.img ? (
-    <img src={props.img} className={props.className} alt="" />
-  ) : (
-    ""
-  );
-})`
+const Image = styled.img`
   margin-top: 10px;
   max-width: 100%;
   border: none;
@@ -55,9 +41,12 @@ export default function(props) {
     <Tweet>
       <Pinned isPinned={props.isPinned} />
       <Autor autor={props.autor} createdAt={props.createdAt} />
-      <Content text={props.text} isCard={props.card ? true : false} />
+      <Content
+        isCard={props.card ? true : false}
+        dangerouslySetInnerHTML={{ __html: props.text }}
+      />
       <Card card={props.card} />
-      <Image img={props.image} />
+      <Image src={props.image} />
       <Actions actions={props.actions} />
     </Tweet>
   );
