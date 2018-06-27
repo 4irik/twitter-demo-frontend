@@ -9,7 +9,7 @@ import Profile from "./Profile";
 import Followers from "./Followers";
 import Media from "./Media";
 import Suggestions from "./Suggestions";
-import Trands from "./Trands";
+import Trends from "./Trends";
 import Policy from "./Policy";
 
 const UserProfile = {
@@ -35,7 +35,7 @@ function ProfilePage() {
           </div>
           <div className="col-xs-3">
             <Suggestions />
-            <Trands />
+            <Trends />
             <Policy policyText="© 2018 Twitter  About  Help Center  Terms Privacy policy  Cookies  Ads info" />
           </div>
         </div>
