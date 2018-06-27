@@ -3,6 +3,12 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Tweet from "./Tweet";
 
+import iconComment from "./asset/icon/comments.svg";
+import iconRetweet from "./asset/icon/retweet.svg";
+import iconLoves from "./asset/icon/loves.svg";
+import iconLovesUsed from "./asset/icon/loves_active.svg";
+import iconEnvelope from "./asset/icon/envelope.svg";
+
 const Wrapper = styled.section`
   background-color: #fff;
   margin-top: 15px;
@@ -45,6 +51,31 @@ const autor = {
   avatar: process.env.PUBLIC_URL + "img/avatar.jpg"
 };
 
+function actionMenuConfig() {
+  return {
+    comment: {
+      count: arguments[0],
+      isUsed: arguments[1],
+      icon: iconComment
+    },
+    retweet: {
+      count: arguments[2],
+      isUsed: arguments[3],
+      icon: iconRetweet
+    },
+    loves: {
+      count: arguments[4],
+      isUsed: arguments[5],
+      icon: arguments[5] ? iconLovesUsed : iconLoves
+    },
+    envelope: {
+      count: arguments[6],
+      isUsed: arguments[7],
+      icon: iconEnvelope
+    }
+  };
+}
+
 const tweets = [
   {
     isPinned: true,
@@ -52,47 +83,13 @@ const tweets = [
     createdAt: "2 Mar 2015",
     text: `We’ve made so1me more resources for all you wonderful <a href="#">#design</a> folk <a href="http://everyinteraction.com/resources/">everyinteraction.com/resources/</a> <a href="#">#webdesign</a> <a href="#">#UI</a>`,
     image: process.env.PUBLIC_URL + "img/img.png",
-    actions: {
-      comment: {
-        count: 0,
-        isUsed: false
-      },
-      retweet: {
-        count: 17,
-        isUsed: false
-      },
-      loves: {
-        count: 47,
-        isUsed: true
-      },
-      envelope: {
-        count: 0,
-        isUsed: false
-      }
-    }
+    actions: actionMenuConfig(0, false, 17, false, 47, true, 0, false)
   },
   {
     autor: autor,
     createdAt: "23h",
     text: `Our new website concept; Taking you from… @ Every Interaction <a href="https://instagram.com/p/BNFGrfhBP3M/">instagram.com/p/BNFGrfhBP3M/</a>`,
-    actions: {
-      comment: {
-        count: 1,
-        isUsed: false
-      },
-      retweet: {
-        count: 4,
-        isUsed: false
-      },
-      loves: {
-        count: 2,
-        isUsed: false
-      },
-      envelope: {
-        count: 0,
-        isUsed: false
-      }
-    }
+    actions: actionMenuConfig(1, false, 4, false, 2, false, 0, false)
   },
   {
     autor: autor,
@@ -104,24 +101,7 @@ const tweets = [
       text: `We love typefaces. They give our sites and applications personalized feel. They convey the information and tell a story. They establish information hierarchy. But they’re…`,
       source: "vilijamis.com"
     },
-    actions: {
-      comment: {
-        count: 0,
-        isUsed: false
-      },
-      retweet: {
-        count: 0,
-        isUsed: false
-      },
-      loves: {
-        count: 0,
-        isUsed: false
-      },
-      envelope: {
-        count: 0,
-        isUsed: false
-      }
-    }
+    actions: actionMenuConfig(0, false, 0, false, 0, true, 0, false)
   }
 ];
 
