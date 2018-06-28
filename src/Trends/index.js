@@ -31,6 +31,32 @@ const Delimiter = styled.span`
   font-size: 8px;
 `;
 
+const trends = [
+  {
+    title: "#BringYourDogToWorkDay"
+  },
+  {
+    title: "#FridayFeeling",
+    count: "12.1K"
+  },
+  {
+    title: "#BrexitAnniversary",
+    hint: "It’s one year since the UK voted to leave the European Union"
+  },
+  {
+    title: "HMS Queen Elizabeth",
+    count: "1,036"
+  },
+  {
+    title: "Joe Budden",
+    count: "1,036"
+  },
+  {
+    title: "Trident",
+    count: "6,136"
+  }
+];
+
 export default props => {
   return (
     <Wrapper>
@@ -38,15 +64,9 @@ export default props => {
         United Kingdom Trends <Delimiter>•</Delimiter>{" "}
         <HeaderChanger to="#">Change</HeaderChanger>
       </Header>
-      <Trend title="#BringYourDogToWorkDay" />
-      <Trend title="#FridayFeeling" count="12.1K" />
-      <Trend
-        title="#BrexitAnniversary"
-        hint="It’s one year since the UK voted to leave the European Union"
-      />
-      <Trend title="HMS Queen Elizabeth" count="1,036" />
-      <Trend title="Joe Budden" count="1,036" />
-      <Trend title="Trident" count="6,136" />
+      {trends.map(trend => (
+        <Trend title={trend.title} count={trend.count} hint={trend.hint} />
+      ))}
     </Wrapper>
   );
 };
