@@ -5,6 +5,8 @@ import Cover from "./Cover";
 import Menu from "./Menu";
 import Post from "./Post";
 import Profile from "./Profile";
+import Followers from "./Followers";
+import Media from "./Media";
 import Suggestions from "./Suggestions";
 import Trends from "./Trends";
 import Policy from "./Policy";
@@ -19,6 +21,8 @@ export default props => {
         <div className="row">
           <div className="col-xs-3">
             <Profile />
+            <Followers />
+            <Media />
           </div>
           <div className="col-xs-6">
             <Post />
