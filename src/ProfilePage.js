@@ -31,7 +31,13 @@ export default props => {
             <Media />
           </div>
           <div className="col-xs-6">
-            <Post />
+            <Post
+              tweets={
+                profiles.find(
+                  profile => profile.account === props.match.params.account
+                ).tweets
+              }
+            />
           </div>
           <div className="col-xs-3">
             <Suggestions

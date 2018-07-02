@@ -1,3 +1,61 @@
+import iconComment from "./asset/icon/comments.svg";
+import iconRetweet from "./asset/icon/retweet.svg";
+import iconLoves from "./asset/icon/loves.svg";
+import iconLovesUsed from "./asset/icon/loves_active.svg";
+import iconEnvelope from "./asset/icon/envelope.svg";
+
+function actionMenuConfig() {
+  return {
+    comment: {
+      count: arguments[0],
+      isUsed: arguments[1],
+      icon: iconComment
+    },
+    retweet: {
+      count: arguments[2],
+      isUsed: arguments[3],
+      icon: iconRetweet
+    },
+    loves: {
+      count: arguments[4],
+      isUsed: arguments[5],
+      icon: arguments[5] ? iconLovesUsed : iconLoves
+    },
+    envelope: {
+      count: arguments[6],
+      isUsed: arguments[7],
+      icon: iconEnvelope
+    }
+  };
+}
+
+const autors = [
+  {
+    name: "Every Interaction",
+    account: "EveryInteract",
+    avatar: process.env.PUBLIC_URL + "img/avatar/everyinteract.jpg",
+    isVerified: true
+  },
+  {
+    name: "AppleInside",
+    account: "appleinsider",
+    avatar: process.env.PUBLIC_URL + "img/avatar/appleinsider.jpg",
+    isVerified: true
+  },
+  {
+    avatar: process.env.PUBLIC_URL + "img/avatar/creode.jpg",
+    name: "Creode",
+    account: "Creode",
+    isVerified: false
+  },
+  {
+    avatar: process.env.PUBLIC_URL + "img/avatar/gmidwood.jpg",
+    name: "Gareth Midwood",
+    account: "gmidwood",
+    isVerified: false
+  }
+];
+
 export const profiles = [
   {
     avatar: process.env.PUBLIC_URL + "img/avatar/everyinteract.jpg",
@@ -16,8 +74,34 @@ export const profiles = [
       count: 522,
       media: []
     },
-    suggetions: [],
-    trends: []
+    tweets: [
+      {
+        isPinned: true,
+        autor: autors[0],
+        createdAt: "2 Mar 2015",
+        text: `We’ve made so1me more resources for all you wonderful <a href="#">#design</a> folk <a href="http://everyinteraction.com/resources/">everyinteraction.com/resources/</a> <a href="#">#webdesign</a> <a href="#">#UI</a>`,
+        image: process.env.PUBLIC_URL + "img/media/original/img.png",
+        actions: actionMenuConfig(0, false, 17, false, 47, true, 0, false)
+      },
+      {
+        autor: autors[0],
+        createdAt: "23h",
+        text: `Our new website concept; Taking you from… @ Every Interaction <a href="https://instagram.com/p/BNFGrfhBP3M/">instagram.com/p/BNFGrfhBP3M/</a>`,
+        actions: actionMenuConfig(1, false, 4, false, 2, false, 0, false)
+      },
+      {
+        autor: autors[0],
+        createdAt: "Nov 18",
+        text: `Variable web fonts are coming, and will open a world of opportunities for weight use online`,
+        card: {
+          image: process.env.PUBLIC_URL + "img/card/rectangle.jpg",
+          header: "The Future of Web Fonts",
+          text: `We love typefaces. They give our sites and applications personalized feel. They convey the information and tell a story. They establish information hierarchy. But they’re…`,
+          source: "vilijamis.com"
+        },
+        actions: actionMenuConfig(0, false, 0, false, 0, true, 0, false)
+      }
+    ]
   },
   {
     avatar: process.env.PUBLIC_URL + "img/avatar/appleinsider.jpg",
@@ -35,7 +119,37 @@ export const profiles = [
     media: {
       count: 14800,
       media: []
-    }
+    },
+    tweets: [
+      {
+        autor: autors[1],
+        createdAt: "35m",
+        text: `New SD card format will transfer at nearly a gigabyte per second <a href="https://t.co/dh9GuplS3c">https://t.co/dh9GuplS3c</a>`,
+        image: process.env.PUBLIC_URL + "img/media/original/sd_cards.jpg",
+        actions: actionMenuConfig(0, false, 5, false, 10, false, 0, false)
+      },
+      {
+        autor: autors[1],
+        createdAt: "2h",
+        text: `Apple’s mini 18W USB-C charger may be real after all <a href="https://t.co/DHVzUY7bZg">https://t.co/DHVzUY7bZg</a>`,
+        image: process.env.PUBLIC_URL + "img/media/original/hz.jpg",
+        actions: actionMenuConfig(1, false, 13, false, 29, false, 0, false)
+      },
+      {
+        autor: autors[1],
+        createdAt: "2h",
+        text: `<a href="/Dell">@Dell</a> reverses course, going public in $21.7B proposal <a href="https://t.co/lcTR6a6Tvl">https://t.co/lcTR6a6Tvl</a>`,
+        image: process.env.PUBLIC_URL + "img/media/original/jobs.jpg",
+        actions: actionMenuConfig(1, false, 5, false, 7, false, 0, false)
+      },
+      {
+        autor: autors[1],
+        createdAt: "3h",
+        text: `<a href="/ATT">@ATT</a>'s <a href="/directvnow">@directvnow</a> follows <a href="/Sling">@Sling</a> TV, <a href="/YouTubeTV">@YouTubeTV</a> in hiking monthly fees <a href="https://t.co/7vhFJJRr0i">https://t.co/7vhFJJRr0i</a>`,
+        image: process.env.PUBLIC_URL + "img/media/original/screen.jpg",
+        actions: actionMenuConfig(0, false, 4, false, 7, false, 0, false)
+      }
+    ]
   },
   {
     avatar: process.env.PUBLIC_URL + "img/avatar/creode.jpg",
@@ -53,7 +167,41 @@ export const profiles = [
     media: {
       count: 105,
       media: []
-    }
+    },
+    tweets: [
+      {
+        autor: autors[2],
+        createdAt: "25 apr.",
+        text: `Grey skies and long days made more bearable with some gifts from <a href="/Beth_NBHD">@Beth_NBHD</a> and the teams at Leeds! <a href="/hashtag/citycentretakeover?src=hash">#citycentretakeover</a>`,
+        image: process.env.PUBLIC_URL + "img/media/original/champagne.jpg",
+        actions: actionMenuConfig(0, false, 1, false, 2, false, 0, false)
+      },
+      {
+        autor: autors[3],
+        createdAt: "17 apr.",
+        text: `In a moment of madness I signed up to fly the <a href="/Creode">@Creode</a> flag at <a href="/codeinthedarkUK">@codeinthedarkUK</a> again! Who's coming along? Friday 27th at <a href="/Belgrave_Leeds">@Belgrave_Leeds</a>`,
+        actions: actionMenuConfig(1, false, 4, false, 6, false, 0, false)
+      },
+      {
+        autor: autors[2],
+        createdAt: "14 mar.",
+        text: `Woohoo!`,
+        card: {
+          image: process.env.PUBLIC_URL + "img/card/lock.png",
+          header: "ACME v2 and Wildcard Certificate Support is Live",
+          text: `We’re pleased to announce that ACMEv2 and wildcard certificate support is live! With today’s new features we’re continuing to break down bar...`,
+          source: "community.letsencrypt.org"
+        },
+        actions: actionMenuConfig(0, false, 0, false, 0, false, 0, false)
+      },
+      {
+        autor: autors[2],
+        createdAt: "31 yan.",
+        text: `There's definitely a trend in logo redevelopment for tech`,
+        image: process.env.PUBLIC_URL + "img/media/original/logotypes.jpg",
+        actions: actionMenuConfig(0, false, 1, false, 3, false, 0, false)
+      }
+    ]
   },
   {
     avatar: process.env.PUBLIC_URL + "img/avatar/epiphanysearch.jpg",
@@ -71,33 +219,14 @@ export const profiles = [
     media: {
       count: 0,
       media: []
-    }
+    },
+    tweets: []
   }
 ];
 
-export const suggetions = [
-  {
-    avatar: process.env.PUBLIC_URL + "img/avatar/everyinteract.jpg",
-    name: "Every Interraction",
-    account: "everyinteract",
-    isVerified: true
-  },
-  {
-    avatar: process.env.PUBLIC_URL + "img/avatar/appleinsider.jpg",
-    name: "AppleInside",
-    account: "appleinsider",
-    isVerified: true
-  },
-  {
-    avatar: process.env.PUBLIC_URL + "img/avatar/creode.jpg",
-    name: "Creode",
-    account: "Creode",
-    isVerified: true
-  },
-  {
-    avatar: process.env.PUBLIC_URL + "img/avatar/epiphanysearch.jpg",
-    name: "Epiphany Search",
-    account: "EpiphanySearch",
-    isVerified: false
-  }
-];
+export const suggetions = profiles.map(profile => ({
+  avatar: profile.avatar,
+  name: profile.name,
+  account: profile.account,
+  isVerified: profile.isVerified
+}));
