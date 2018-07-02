@@ -11,6 +11,8 @@ import Suggestions from "./Suggestions";
 import Trends from "./Trends";
 import Policy from "./Policy";
 
+import { profiles, suggetions } from "./data";
+
 export default props => {
   return (
     <div>
@@ -20,7 +22,11 @@ export default props => {
       <div className="container">
         <div className="row">
           <div className="col-xs-3">
-            <Profile />
+            <Profile
+              profile={profiles.find(
+                profile => profile.account === props.match.params.account
+              )}
+            />
             <Followers />
             <Media />
           </div>
@@ -28,7 +34,11 @@ export default props => {
             <Post />
           </div>
           <div className="col-xs-3">
-            <Suggestions />
+            <Suggestions
+              suggetions={suggetions.filter(
+                item => item.account !== props.match.params.account
+              )}
+            />
             <Trends />
             <Policy policyText="© 2018 Twitter  About  Help Center  Terms Privacy policy  Cookies  Ads info" />
           </div>

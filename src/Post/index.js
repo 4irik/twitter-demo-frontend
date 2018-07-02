@@ -48,7 +48,7 @@ const tabMenuData = [
 const autor = {
   name: "Every Interaction",
   account: "EveryInteract",
-  avatar: process.env.PUBLIC_URL + "img/avatar.jpg"
+  avatar: process.env.PUBLIC_URL + "img/avatar/everyinteract.jpg"
 };
 
 function actionMenuConfig() {

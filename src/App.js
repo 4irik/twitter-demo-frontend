@@ -13,7 +13,7 @@ export default function() {
       <BrowserRouter>
         <Switch>
           <Redirect exact from="/" to="/everyinteract" />
-          <Route path="/everyinteract" component={ProfilePage} />
+          <Route path="/:account" component={ProfilePage} />
         </Switch>
       </BrowserRouter>
     </div>
