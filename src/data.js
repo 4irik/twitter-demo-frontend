@@ -1,30 +1,20 @@
-import iconComment from "./asset/icon/comments.svg";
-import iconRetweet from "./asset/icon/retweet.svg";
-import iconLoves from "./asset/icon/loves.svg";
-import iconLovesUsed from "./asset/icon/loves_active.svg";
-import iconEnvelope from "./asset/icon/envelope.svg";
-
 function actionMenuConfig() {
   return {
     comment: {
       count: arguments[0],
-      isUsed: arguments[1],
-      icon: iconComment
+      isUsed: arguments[1]
     },
     retweet: {
       count: arguments[2],
-      isUsed: arguments[3],
-      icon: iconRetweet
+      isUsed: arguments[3]
     },
     loves: {
       count: arguments[4],
-      isUsed: arguments[5],
-      icon: arguments[5] ? iconLovesUsed : iconLoves
+      isUsed: arguments[5]
     },
     envelope: {
       count: arguments[6],
-      isUsed: arguments[7],
-      icon: iconEnvelope
+      isUsed: arguments[7]
     }
   };
 }

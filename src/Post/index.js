@@ -3,12 +3,6 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import Tweet from "./Tweet";
 
-import iconComment from "./asset/icon/comments.svg";
-import iconRetweet from "./asset/icon/retweet.svg";
-import iconLoves from "./asset/icon/loves.svg";
-import iconLovesUsed from "./asset/icon/loves_active.svg";
-import iconEnvelope from "./asset/icon/envelope.svg";
-
 const Wrapper = styled.section`
   background-color: #fff;
   margin-top: 15px;
