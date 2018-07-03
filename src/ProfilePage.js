@@ -32,6 +32,9 @@ export default props => {
           </div>
           <div className="col-xs-6">
             <Post
+              profile={profiles.find(
+                profile => profile.account === props.match.params.account
+              )}
               tweets={
                 profiles.find(
                   profile => profile.account === props.match.params.account
