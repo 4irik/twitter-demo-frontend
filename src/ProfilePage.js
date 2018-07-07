@@ -11,7 +11,7 @@ import Suggestions from "./Suggestions";
 import Trends from "./Trends";
 import Policy from "./Policy";
 
-import { profiles, suggetions, trends } from "./data";
+import { profiles, suggetions, trends, followers } from "./data";
 
 export default props => {
   return (
@@ -27,7 +27,10 @@ export default props => {
                 profile => profile.account === props.match.params.account
               )}
             />
-            <Followers />
+            <Followers
+              followers={followers.accounts(props.match.params.account)}
+              count={followers.count(props.match.params.account)}
+            />
             <Media />
           </div>
           <div className="col-xs-6">

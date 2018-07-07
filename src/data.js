@@ -249,3 +249,14 @@ export const trends = {
     }
   ]
 };
+
+export const followers = {
+  count: function(account) {
+    return account === "EpiphanySearch"
+      ? 0
+      : Math.floor(Math.random() * 50) + 1;
+  },
+  accounts: function(account) {
+    return suggetions.filter(x => x.account !== account);
+  }
+};
