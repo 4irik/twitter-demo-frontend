@@ -40,27 +40,19 @@ const MediaItem = styled.img`
   border-radius: 2px;
 `;
 
-const mediaNumbers = Array.apply(null, { length: 6 }).map(Number.call, Number);
-
-function getImageName(number) {
-  return process.env.PUBLIC_URL + "img/media/" + (number + 1) + ".jpg";
-}
-
 export default props => {
-  return (
+  return !props.count ? null : (
     <Wrapper>
       <Title>
         <Icon src={iconMedia} />{" "}
-        <TitleLink to="">522 Photos and videos</TitleLink>
+        <TitleLink to="">{props.count} Photos and videos</TitleLink>
       </Title>
       <MediaBlock>
-        {mediaNumbers.map(function(number) {
-          return (
-            <MediaLink to="#">
-              <MediaItem src={getImageName(number)} alt="" />
-            </MediaLink>
-          );
-        })}
+        {props.media.map(mediaItem => (
+          <MediaLink to="#">
+            <MediaItem src={mediaItem} alt="" />
+          </MediaLink>
+        ))}
       </MediaBlock>
     </Wrapper>
   );

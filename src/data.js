@@ -260,3 +260,18 @@ export const followers = {
     return suggetions.filter(x => x.account !== account);
   }
 };
+
+export const media = {
+  count: function(account) {
+    return account === "EpiphanySearch"
+      ? 0
+      : Math.floor(Math.random() * 999) + 1;
+  },
+  media: function() {
+    return Array.apply(null, { length: Math.floor(Math.random() * 5) + 1 })
+      .map(Number.call, Number)
+      .map(
+        number => process.env.PUBLIC_URL + "img/media/" + (number + 1) + ".jpg"
+      );
+  }
+};
