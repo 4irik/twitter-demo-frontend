@@ -220,3 +220,32 @@ export const suggetions = profiles.map(profile => ({
   account: profile.account,
   isVerified: profile.isVerified
 }));
+
+export const trends = {
+  title: "United Kingdom Trends",
+  trends: [
+    {
+      title: "#BringYourDogToWorkDay"
+    },
+    {
+      title: "#FridayFeeling",
+      count: "12.1K"
+    },
+    {
+      title: "#BrexitAnniversary",
+      hint: "It’s one year since the UK voted to leave the European Union"
+    },
+    {
+      title: "HMS Queen Elizabeth",
+      count: "1,036"
+    },
+    {
+      title: "Joe Budden",
+      count: "1,036"
+    },
+    {
+      title: "Trident",
+      count: "6,136"
+    }
+  ]
+};

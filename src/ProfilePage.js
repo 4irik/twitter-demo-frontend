@@ -11,7 +11,7 @@ import Suggestions from "./Suggestions";
 import Trends from "./Trends";
 import Policy from "./Policy";
 
-import { profiles, suggetions } from "./data";
+import { profiles, suggetions, trends } from "./data";
 
 export default props => {
   return (
@@ -48,7 +48,7 @@ export default props => {
                 item => item.account !== props.match.params.account
               )}
             />
-            <Trends />
+            <Trends {...trends} />
             <Policy policyText="© 2018 Twitter  About  Help Center  Terms Privacy policy  Cookies  Ads info" />
           </div>
         </div>
