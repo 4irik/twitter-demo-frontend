@@ -1,4 +1,5 @@
 import React from "react";
+import Helmet from "react-helmet";
 
 import Header from "./Header";
 import Cover from "./Cover";
@@ -14,25 +15,23 @@ import Policy from "./Policy";
 import { profiles, suggetions, trends, followers, media } from "./data";
 
 export default props => {
+  let profile = profiles.find(
+    profile => profile.account === props.match.params.account
+  );
   return (
     <div>
+      <Helmet>
+        <title>
+          {profile.name} (@{profile.account}) | Twitter
+        </title>
+      </Helmet>
       <Header />
-      <Cover
-        background={
-          profiles.find(
-            profile => profile.account === props.match.params.account
-          ).background
-        }
-      />
+      <Cover background={profile.background} />
       <Menu />
       <div className="container">
         <div className="row">
           <div className="col-xs-3">
-            <Profile
-              profile={profiles.find(
-                profile => profile.account === props.match.params.account
-              )}
-            />
+            <Profile profile={profile} />
             <Followers
               followers={followers.accounts(props.match.params.account)}
               count={followers.count(props.match.params.account)}
@@ -43,16 +42,7 @@ export default props => {
             />
           </div>
           <div className="col-xs-6">
-            <Post
-              profile={profiles.find(
-                profile => profile.account === props.match.params.account
-              )}
-              tweets={
-                profiles.find(
-                  profile => profile.account === props.match.params.account
-                ).tweets
-              }
-            />
+            <Post profile={profile} tweets={profile.tweets} />
           </div>
           <div className="col-xs-3">
             <Suggestions
