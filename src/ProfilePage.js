@@ -17,7 +17,13 @@ export default props => {
   return (
     <div>
       <Header />
-      <Cover />
+      <Cover
+        background={
+          profiles.find(
+            profile => profile.account === props.match.params.account
+          ).background
+        }
+      />
       <Menu />
       <div className="container">
         <div className="row">

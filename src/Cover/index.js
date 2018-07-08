@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-const Cover = styled.section`
+const Cover = styled.section.attrs({})`
+  background-color: ${props => props.color || "transparent"};
   position: relative;
   overflow: hidden;
   height: 460px;
@@ -15,10 +16,10 @@ const Background = styled.img`
   width: 100%;
 `;
 
-export default function() {
+export default props => {
   return (
-    <Cover>
-      <Background src={process.env.PUBLIC_URL + "img/profile-image.jpg"} />
+    <Cover color={props.background.color || null}>
+      {props.background.src ? <Background src={props.background.src} /> : null}
     </Cover>
   );
-}
+};

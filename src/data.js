@@ -49,6 +49,9 @@ const autors = [
 export const profiles = [
   {
     avatar: process.env.PUBLIC_URL + "img/avatar/everyinteract.jpg",
+    background: {
+      src: process.env.PUBLIC_URL + "img/background/everyinteract.jpg"
+    },
     name: "Every Interraction",
     account: "everyinteract",
     isVerified: true,
@@ -95,6 +98,9 @@ export const profiles = [
   },
   {
     avatar: process.env.PUBLIC_URL + "img/avatar/appleinsider.jpg",
+    background: {
+      src: process.env.PUBLIC_URL + "img/background/appleinsider.jpg"
+    },
     name: "AppleInside",
     account: "appleinsider",
     isVerified: true,
@@ -143,6 +149,9 @@ export const profiles = [
   },
   {
     avatar: process.env.PUBLIC_URL + "img/avatar/creode.jpg",
+    background: {
+      src: process.env.PUBLIC_URL + "img/background/Creode.jpg"
+    },
     name: "Creode",
     account: "Creode",
     isVerified: true,
@@ -195,6 +204,9 @@ export const profiles = [
   },
   {
     avatar: process.env.PUBLIC_URL + "img/avatar/epiphanysearch.jpg",
+    background: {
+      color: "#F89728"
+    },
     name: "Epiphany Search",
     account: "EpiphanySearch",
     isVerified: false,
