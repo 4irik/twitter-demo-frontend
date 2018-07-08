@@ -14,9 +14,9 @@ import Policy from "./Policy";
 
 import { profiles, suggetions, trends, followers, media } from "./data";
 
-export default props => {
+export default ({ match }) => {
   let profile = profiles.find(
-    profile => profile.account === props.match.params.account
+    profile => profile.account === match.params.account
   );
   return (
     <div>
@@ -33,21 +33,21 @@ export default props => {
           <div className="col-xs-3">
             <Profile profile={profile} />
             <Followers
-              followers={followers.accounts(props.match.params.account)}
-              count={followers.count(props.match.params.account)}
+              followers={followers.accounts(match.params.account)}
+              count={followers.count(match.params.account)}
             />
             <Media
-              count={media.count(props.match.params.account)}
+              count={media.count(match.params.account)}
               media={media.media()}
             />
           </div>
           <div className="col-xs-6">
-            <Post profile={profile} tweets={profile.tweets} />
+            <Post profile={profile} />
           </div>
           <div className="col-xs-3">
             <Suggestions
               suggetions={suggetions.filter(
-                item => item.account !== props.match.params.account
+                item => item.account !== match.params.account
               )}
             />
             <Trends {...trends} />

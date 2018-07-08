@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
 import Tweet from "./Tweet";
+
+import { tweets } from "../data";
 
 const Wrapper = styled.section.attrs({
   backgroundColor: props => (props.empty ? "transparent" : "#fff"),
@@ -42,23 +44,12 @@ const TabMenuLink = styled(NavLink)`
   }
 `;
 
-const tabMenuData = [
-  {
-    url: "/everyinteract",
-    text: "Tweets"
-  },
-  {
-    url: "/everyinteract/with_replies",
-    text: "Tweets & replice"
-  },
-  {
-    url: "/everyinteract/media",
-    text: "Media"
-  }
-];
-
 export default props => {
-  if (props.tweets.length < 1) {
+  let userTweets = tweets.filter(
+    tweet => tweet.wall.account === props.profile.account
+  );
+
+  if (userTweets.length < 1) {
     return (
       <Wrapper empty={true}>
         <EmptyHeader>
@@ -72,13 +63,47 @@ export default props => {
   return (
     <Wrapper>
       <TabMenu>
-        {tabMenuData.map(tabItem => (
-          <TabMenuLink to={tabItem.url} activeClassName="active">
-            {tabItem.text}
-          </TabMenuLink>
-        ))}
+        <TabMenuLink
+          exact
+          to={`/${props.profile.account}`}
+          activeClassName="active"
+        >
+          Tweets
+        </TabMenuLink>
+        <TabMenuLink
+          to={`/${props.profile.account}/with_replies`}
+          activeClassName="active"
+        >
+          Tweets & replice
+        </TabMenuLink>
+        <TabMenuLink
+          to={`/${props.profile.account}/media`}
+          activeClassName="active"
+        >
+          Media
+        </TabMenuLink>
       </TabMenu>
-      {props.tweets.map(tweet => <Tweet {...tweet} />)}
+      <Route
+        exact
+        path={`/${props.profile.account}`}
+        render={() => userTweets.map(tweet => <Tweet {...tweet} />)}
+      />
+      <Route
+        path={`/${props.profile.account}/with_replies`}
+        render={() =>
+          userTweets
+            .filter(tweet => tweet.actions.comment.count > 0)
+            .map(tweet => <Tweet {...tweet} />)
+        }
+      />
+      <Route
+        path={`/${props.profile.account}/media`}
+        render={() =>
+          userTweets
+            .filter(tweet => tweet.image)
+            .map(tweet => <Tweet {...tweet} />)
+        }
+      />
     </Wrapper>
   );
 };
