@@ -112,7 +112,9 @@ export default function() {
               </Button>
             </Form>
             <Link to="/">
-              <Avatar src={process.env.PUBLIC_URL + "img/avatar.jpg"} />
+              <Avatar
+                src={process.env.PUBLIC_URL + "img/avatar/everyinteract.jpg"}
+              />
             </Link>
             <SolidButton>Tweet</SolidButton>
           </Search>

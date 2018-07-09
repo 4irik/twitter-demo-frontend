@@ -40,30 +40,18 @@ const Avatar = styled.img`
 `;
 
 export default props => {
-  return (
+  return !props.count ? null : (
     <Wrapper>
       <Title>
         <Icon src={iconFollowers} />{" "}
-        <FollowersLink to="">6 Followers you know</FollowersLink>
+        <FollowersLink to="">{props.count} Followers you know</FollowersLink>
       </Title>
       <AvatarBlock>
-        {Array.apply(null, { length: 6 })
-          .map(Number.call, Number)
-          .map(function(number) {
-            return (
-              <AvatarLink to="#">
-                <Avatar
-                  src={
-                    process.env.PUBLIC_URL +
-                    "img/followers/" +
-                    (number + 1) +
-                    ".jpg"
-                  }
-                  alt=""
-                />
-              </AvatarLink>
-            );
-          })}
+        {props.followers.map(foolower => (
+          <AvatarLink to={foolower.account} title={foolower.name}>
+            <Avatar src={foolower.avatar} alt="" />
+          </AvatarLink>
+        ))}
       </AvatarBlock>
     </Wrapper>
   );

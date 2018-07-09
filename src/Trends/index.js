@@ -35,18 +35,12 @@ export default props => {
   return (
     <Wrapper>
       <Header>
-        United Kingdom Trends <Delimiter>•</Delimiter>{" "}
+        {props.title} <Delimiter>•</Delimiter>{" "}
         <HeaderChanger to="#">Change</HeaderChanger>
       </Header>
-      <Trend title="#BringYourDogToWorkDay" />
-      <Trend title="#FridayFeeling" count="12.1K" />
-      <Trend
-        title="#BrexitAnniversary"
-        hint="It’s one year since the UK voted to leave the European Union"
-      />
-      <Trend title="HMS Queen Elizabeth" count="1,036" />
-      <Trend title="Joe Budden" count="1,036" />
-      <Trend title="Trident" count="6,136" />
+      {props.trends.map(trend => (
+        <Trend title={trend.title} count={trend.count} hint={trend.hint} />
+      ))}
     </Wrapper>
   );
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import Helmet from "react-helmet";
 
 import Header from "./Header";
 import Cover from "./Cover";
@@ -11,25 +12,45 @@ import Suggestions from "./Suggestions";
 import Trends from "./Trends";
 import Policy from "./Policy";
 
-export default props => {
+import { profiles, suggetions, trends, followers, media } from "./data";
+
+export default ({ match }) => {
+  let profile = profiles.find(
+    profile => profile.account === match.params.account
+  );
   return (
     <div>
+      <Helmet>
+        <title>
+          {profile.name} (@{profile.account}) | Twitter
+        </title>
+      </Helmet>
       <Header />
-      <Cover />
+      <Cover background={profile.background} />
       <Menu />
       <div className="container">
         <div className="row">
           <div className="col-xs-3">
-            <Profile />
-            <Followers />
-            <Media />
+            <Profile profile={profile} />
+            <Followers
+              followers={followers.accounts(match.params.account)}
+              count={followers.count(match.params.account)}
+            />
+            <Media
+              count={media.count(match.params.account)}
+              media={media.media()}
+            />
           </div>
           <div className="col-xs-6">
-            <Post />
+            <Post profile={profile} />
           </div>
           <div className="col-xs-3">
-            <Suggestions />
-            <Trends />
+            <Suggestions
+              suggetions={suggetions.filter(
+                item => item.account !== match.params.account
+              )}
+            />
+            <Trends {...trends} />
             <Policy policyText="© 2018 Twitter  About  Help Center  Terms Privacy policy  Cookies  Ads info" />
           </div>
         </div>

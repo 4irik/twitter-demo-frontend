@@ -50,6 +50,13 @@ const Description = styled.div`
   line-height: 20px;
   font-size: 14px;
   color: #14171a;
+  & a {
+    color: #1da1f2;
+    text-decoration: none;
+  }
+  & a:hover {
+    text-decoration: underline;
+  }
 `;
 
 const InfoLine = styled.div`
@@ -91,31 +98,37 @@ const ActionButton = styled.button`
 export default props => {
   return (
     <Wrapper>
-      <Avatar src={process.env.PUBLIC_URL + "img/avatar.jpg"} alt="" />
+      <Avatar src={props.profile.avatar} alt="" />
       <Name>
-        Every Interraction <Verified src={iconVerified} alt="" />
+        {props.profile.name}
+        {props.profile.isVerified ? <Verified src={iconVerified} alt="" /> : ""}
       </Name>
       <AccountName>
-        @EveryInterract <Follow>Follow us</Follow>
+        @{props.profile.account} <Follow>Follow us</Follow>
       </AccountName>
-      <Description>
-        UX Design studio focussed problem solving creativity. Design to us is
-        how can we make things *work* amazing.
-      </Description>
-      <InfoLine>
-        <InfoIcon src={iconLocation} />
-        London, UK
-      </InfoLine>
-      <InfoLine>
-        <InfoIcon src={iconLink} />
-        <InfoLink to="https://everyinteraction.com">
-          everyinteraction.com
-        </InfoLink>
-      </InfoLine>
-      <InfoLine>
-        <InfoIcon src={iconJoined} />
-        Joined May 2008
-      </InfoLine>
+      {props.profile.description ? (
+        <Description
+          dangerouslySetInnerHTML={{ __html: props.profile.description }}
+        />
+      ) : null}
+      {props.profile.location ? (
+        <InfoLine>
+          <InfoIcon src={iconLocation} />
+          {props.profile.location}
+        </InfoLine>
+      ) : null}
+      {props.profile.site ? (
+        <InfoLine>
+          <InfoIcon src={iconLink} />
+          <InfoLink to={props.profile.site}>{props.profile.site}</InfoLink>
+        </InfoLine>
+      ) : null}
+      {props.profile.joined ? (
+        <InfoLine>
+          <InfoIcon src={iconJoined} />
+          {props.profile.joined}
+        </InfoLine>
+      ) : null}
       <ActionBlock>
         <ActionButton>Tweet to</ActionButton>
         <ActionButton>Message</ActionButton>

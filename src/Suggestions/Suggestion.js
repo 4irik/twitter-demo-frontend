@@ -81,10 +81,10 @@ export default props => {
   return (
     <Wrapper>
       <Avatar src={props.avatar} alt="" />
-      <ProfileName to="#">
+      <ProfileName to={"/" + props.account}>
         {props.name}{" "}
         {props.isVerified ? <VerifiedIcon src={iconVerified} alt="" /> : ""}{" "}
-        <ProfileAccount>{props.account}</ProfileAccount>
+        <ProfileAccount>@{props.account}</ProfileAccount>
       </ProfileName>
       <DeleteIcon src={iconDelete} alt="delete suggestion" />
       <Follow>Follow</Follow>
